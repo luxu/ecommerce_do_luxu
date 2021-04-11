@@ -3,10 +3,10 @@
     <section class="hero is-medium is-dark mb-6">
         <div class="hero-body has-text-centered">
             <p class="title mb-6">
-                Welcome to Djacket
+                Bem-vindo a loja DevExperts
             </p>
             <p class="subtitle">
-                The best jacket store online
+                A melhor loja online de produtos de informática
             </p>
         </div>
     </section>
@@ -42,15 +42,16 @@ export default {
   mounted() {
     this.getLatestProducts()
 
-    document.title = 'Home | Djackets'
+    document.title = 'Home | DevExperts'
   },
   methods: {
     async getLatestProducts() {
       this.$store.commit('setIsLoading', true)
 
       await axios
-        .get('/api/v1/latest-products/')
+        .get('/product/latest-products/')
         .then(response => {
+          debugger
           this.latestProducts = response.data
         })
         .catch(error => {

@@ -2,7 +2,7 @@
   <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item"><strong>Djackets</strong></router-link>
+        <router-link to="/" class="navbar-item"><strong>DevExperts</strong></router-link>
 
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
           <span aria-hidden="true"></span>
@@ -17,7 +17,7 @@
             <form method="get" action="/search">
               <div class="field has-addons">
                 <div class="control">
-                  <input type="text" class="input" placeholder="What are you looking for?" name="query">
+                  <input type="text" class="input" placeholder="O que está procurando?" name="query">
                 </div>
 
                 <div class="control">
@@ -34,7 +34,6 @@
 
         <div class="navbar-end">
           <router-link to="/summer" class="navbar-item">Verão</router-link>
-          <router-link to="/winter" class="navbar-item">Inverno</router-link>
 
           <div class="navbar-item">
             <div class="buttons">

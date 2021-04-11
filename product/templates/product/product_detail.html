@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Produto: {{ product }}</h1>
+        <p>Preço: {{ product.price }}</p>
+        {% if product.image %}
+            <p>Imagem: </p>
+            <image src="{{ product.image.url }}" class="img-fluid" alt="{{ product.image.name }}"></image>
+        {% endif %}
+        {% if product.thumbnail %}
+            <p>Miniatura: </p>
+            <image src="{{ product.thumbnail.url }}" class="img-thumbnail" alt="{{ product.thumbnail.name }}"></image>
+        {% endif %}
+        <p>Categoria: {{ product.category }}</p>
+        <p>Data: {{ product.date_added |date }}</p>
+    </div>
+{% endblock content %}

@@ -3,21 +3,24 @@ from PIL import Image
 
 from django.core.files import File
 from django.db import models
+from django.template.defaultfilters import slugify
 
 class Category(models.Model):
     name = models.CharField(
         verbose_name='Nome',
         max_length=255
     )
-    slug = models.SlugField(
-        verbose_name='Apelido'
-    )
 
     class Meta:
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
         ordering = ('name',)
     
     def __str__(self):
         return self.name
+
+    def slug(self):
+        return slugify(self.name)
     
     def get_absolute_url(self):
         return f'/{self.slug}/'
@@ -32,9 +35,6 @@ class Product(models.Model):
     name = models.CharField(
         verbose_name='Nome',
         max_length=255
-    )
-    slug = models.SlugField(
-        verbose_name='Apelido',
     )
     description = models.TextField(
         verbose_name='Descrição',
@@ -58,10 +58,15 @@ class Product(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name = 'Produto'
+        verbose_name_plural = 'Produtos'
         ordering = ('-date_added',)
     
     def __str__(self):
         return self.name
+
+    def slug(self):
+        return slugify(self.name)
     
     def get_absolute_url(self):
         return f'/{self.category.slug}/{self.slug}/'

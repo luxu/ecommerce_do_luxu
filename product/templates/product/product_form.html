@@ -3,17 +3,17 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <form method="post" novalidate>
+  <form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <div class="row">
       <div class="col-4">
         {{ form.name|as_crispy_field }}
       </div>
       <div class="col-4">
-        {{ form.slug|as_crispy_field }}
+        {{ form.price|as_crispy_field }}
       </div>
       <div class="col-4">
-        {{ form.price|as_crispy_field }}
+        {{ form.category|as_crispy_field }}
       </div>
     </div>
     <div class="row">
@@ -22,9 +22,6 @@
       </div>
       <div class="col-4">
         {{ form.thumbnail|as_crispy_field }}
-      </div>
-      <div class="col-4">
-        {{ form.category|as_crispy_field }}
       </div>
     </div>
     <button type="submit" class="btn btn-success">Salvar Produto</button>
