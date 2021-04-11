@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 frontend/node_modules
-.jpg
+*.jpg
 
 # C extensions
 *.so
